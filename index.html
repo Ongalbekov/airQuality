@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+            text-align: center;
+        }
+        input{
+            width:50%;
+        }
+        span{
+            font-weight: 700;
+        }
+    </style>
+    <div>
+        <form action="">
+            <label for="range">AQ: <span></span> <br/></label>
+            <input type="range" id="range" min="0" max="150" onchange="check()"/>
+        </form>
+    </div>
+    <div>
+        <p id="output1">Level of health concern: <span></span> </p>
+        <p id="output2">Level of health effect: <span></span></p>
+    </div>
+
+    <script>
+        let rangeInfo=document.querySelector('label span');
+        let output1=document.querySelector('#output1 span');
+        let output2=document.querySelector('#output2 span');
+        let body=document.querySelector('body');
+
+        check=()=>{
+            let range=document.querySelector('#range').value;
+            rangeInfo.innerText=range;
+
+            if(range<=50){
+                body.style.backgroundColor='green';
+                output1.innerHTML='Good';
+                output2.innerHTML='Little or no risk';
+            }
+            else if(range<=100){
+                body.style.backgroundColor='yellow';
+                output1.innerHTML='Moderate';
+                output2.innerHTML='Acceptable quality';
+            }
+            else{
+                body.style.backgroundColor='orange';
+                output1.innerHTML='Unhealthy for sensitive groups';
+                output2.innerHTML='Generable publics not likely affected';
+            }
+        }
+
+    </script>
+</body>
+</html>
